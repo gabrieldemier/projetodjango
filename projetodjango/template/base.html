@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestão de Alunos</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f4f4f9; }
+        header { margin-bottom: 20px; }
+        a { text-decoration: none; color: #007bff; }
+        a:hover { text-decoration: underline; }
+        .mensagem { background: #d1ffd1; padding: 10px; border: 1px solid #5cb85c; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Gestão de Alunos</h1>
+        <nav>
+            <a href="{% url 'alunos:lista_alunos' %}">Lista</a> |
+            <a href="{% url 'alunos:criar_aluno' %}">Novo Aluno</a>
+        </nav>
+    </header>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="mensagem">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    {% block content %}{% endblock %}
+</body>
+</html>

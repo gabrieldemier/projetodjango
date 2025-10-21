@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Lista de Alunos</h2>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <tr>
+        <th>Nome</th>
+        <th>Matrícula</th>
+        <th>Ações</th>
+    </tr>
+    {% for aluno in alunos %}
+    <tr>
+        <td>{{ aluno.nome }}</td>
+        <td>{{ aluno.matricula }}</td>
+        <td>
+            <a href="{% url 'alunos:aluno_detalhe' aluno.pk %}">Ver</a> |
+            <a href="{% url 'alunos:aluno_editar' aluno.pk %}">Editar</a> |
+            <a href="{% url 'alunos:aluno_excluir' aluno.pk %}">Excluir</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Excluir Aluno</h2>
+<p>Tem certeza que deseja excluir o aluno "{{ aluno.nome }}"?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmar</button>
+</form>
+
+<a href="{% url 'alunos:lista_alunos' %}">Cancelar</a>
+{% endblock %}
